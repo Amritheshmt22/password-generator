@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Frontend practice project</p>
+      <h1>Password Generator</h1>
+      <p class="intro">Create a strong random password with the length and character sets you choose.</p>
+    </header>
+
+    <section class="generator-card" aria-label="Password generator">
+      <div class="output-row">
+        <output id="passwordOutput" class="password-output" aria-live="polite">Click Generate</output>
+        <button id="copyButton" class="icon-button" type="button">Copy</button>
+      </div>
+
+      <div class="strength-row">
+        <div class="strength-bar" aria-hidden="true">
+          <div id="strengthFill" class="strength-fill"></div>
+        </div>
+        <span id="strengthLabel" class="strength-label">Strength: -</span>
+      </div>
+
+      <div class="length-row">
+        <label for="lengthRange">Length</label>
+        <input id="lengthRange" type="range" min="4" max="32" step="1" value="16">
+        <output id="lengthValue" class="length-value">16</output>
+      </div>
+
+      <fieldset class="options-grid">
+        <legend>Include characters</legend>
+        <label class="option">
+          <input id="optUpper" type="checkbox" checked>
+          <span>Uppercase (A-Z)</span>
+        </label>
+        <label class="option">
+          <input id="optLower" type="checkbox" checked>
+          <span>Lowercase (a-z)</span>
+        </label>
+        <label class="option">
+          <input id="optNumber" type="checkbox" checked>
+          <span>Numbers (0-9)</span>
+        </label>
+        <label class="option">
+          <input id="optSymbol" type="checkbox">
+          <span>Symbols (!@#$)</span>
+        </label>
+        <label class="option wide">
+          <input id="optNoSimilar" type="checkbox">
+          <span>Avoid look-alike characters (l, 1, I, O, 0)</span>
+        </label>
+      </fieldset>
+
+      <p id="errorText" class="error-text" role="alert" hidden></p>
+
+      <button id="generateButton" class="generate-button" type="button">Generate password</button>
+    </section>
+
+    <section class="note-card" aria-labelledby="note-title">
+      <h2 id="note-title">Good to know</h2>
+      <p>Passwords are generated locally in your browser using the Web Crypto API. Nothing is stored or sent anywhere - the password disappears when you close or reload the page.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
